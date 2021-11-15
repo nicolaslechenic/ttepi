@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 2020_06_05_133724) do
     t.string "name"
     t.string "description"
     t.integer "price"
-    t.integer "shop_id"
+    t.bigint "shop_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_products_on_shop_id"
   end
 
   create_table "products_taxons", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "taxon_id"
+    t.bigint "product_id"
+    t.bigint "taxon_id"
     t.index ["product_id"], name: "index_products_taxons_on_product_id"
     t.index ["taxon_id"], name: "index_products_taxons_on_taxon_id"
   end
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_133724) do
   end
 
   create_table "shops_taxons", force: :cascade do |t|
-    t.integer "shop_id"
-    t.integer "taxon_id"
+    t.bigint "shop_id"
+    t.bigint "taxon_id"
     t.index ["shop_id"], name: "index_shops_taxons_on_shop_id"
     t.index ["taxon_id"], name: "index_shops_taxons_on_taxon_id"
   end
